@@ -2,7 +2,7 @@
 import pandas as pd 
 # pd.set_option("display.max_rows", 100)
 
-# testo = "-testo"
+testo = "-testo"
 testo = ''
 chart_key = f"oz-datablogs-220228-wivenhoe-dam-levels-{testo}"
 
@@ -35,7 +35,7 @@ final = df.to_dict(orient='records')
 
 p = df
 
-# p = p.sort_values(by=['Last Observation (%)'], ascending=False)
+p = p.sort_values(by=['Water level'], ascending=False)
 
 # vchecker = 'Last Observation (ML)'
 # print(p.loc[p[vchecker].isna()])
@@ -54,9 +54,9 @@ template = [
     "dateFormat": "%Y-%m-%d",
     "source": "SEQ Water",
     "margin-left": "35",
-    "margin-top": "30",
+    "margin-top": "40",
     "margin-bottom": "20",
-    "margin-right": "10",
+    "margin-right": "30",
 #     "tooltip":"<strong>{{#formatDate}}{{Date}}{{/formatDate}}</strong><br/> In ICU: {{ICU}}<br/>"
     }
 ]
@@ -64,7 +64,13 @@ template = [
 yachtCharter(template=template, 
             data=final,
             chartId=[{"type":"linechart"}],
-            options=[{"colorScheme":"guardian", "lineLabelling":"TRUE"}],
+            labels = [{"x":f"2011-01-11", "y":190, "offset":10,
+                        "text":f"2011 floods",
+                        "align":"right", "direction":"right"},
+                        {"x":f"2022-02-27", "y":183, "offset":10,
+                        "text":f"2022 floods",
+                        "align":"end", "direction":"right"}],
+            options=[{"colorScheme":"guardian", "lineLabelling":"FALSE"}],
             chartName=f"{chart_key}{testo}")
 
 # # #%%

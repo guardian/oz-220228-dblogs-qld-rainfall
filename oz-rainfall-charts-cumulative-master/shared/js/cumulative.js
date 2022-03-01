@@ -89,7 +89,7 @@ export function cumulative(results, chartId) {
 	
 	// console.log(xVar, keys);
 
-	var colors = ["#e08214","#8073ac","#4393c3","rgb(204, 10, 17)"];
+	var colors = ["#4393c3","#8073ac","#e08214","rgb(204, 10, 17)"];
 	var color = d3.scaleOrdinal();
 
 	color.domain([keys]).range(colors);
@@ -365,7 +365,7 @@ export function cumulative(results, chartId) {
 		var opec = 1
 		// console.log(keyData[key])
 		if (key.includes("flood")){
-			opec = 0.3
+			opec = 1
 		}
 
 

@@ -35,9 +35,9 @@ window.addEventListener('resize', function() {
 // ]
 
 var rainfall = [
-	{"id":"brisbane", "text":"Brisbane River", "notes":""},
-	{"id":"wilsons", "text":"Wilsons River", "notes":""},
-	{"id":"mary", "text":"Mary River", "notes":""}
+	{"id":"brisbane", "text":"Brisbane River", "years":"seven days"},
+	{"id":"wilsons", "text":"Wilsons River, Lismore", "years":"four days"},
+	{"id":"mary", "text":"Mary River, Gympie", "years":"seven days"}
 	]
 
 var selector = d3.select(".rainfall #rainSelector")
