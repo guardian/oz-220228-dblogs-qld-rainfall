@@ -38,7 +38,7 @@ var rainfall = [
 	{"id":"nepean", "text":"Nepean, Menangle Bridge", "years":"seven days"},
 	{"id":"hawkesbury", "text":"Hawkesbury, North Richmond", "years":"seven days"},
 	{"id":"brisbane", "text":"Brisbane River", "years":"seven days"},
-	{"id":"wilsons", "text":"Wilsons River, Lismore", "years":"four days"},
+	{"id":"wilsons", "text":"Wilsons River, Lismore", "years":"four days. The Wilsons River gauge was washed away on the 28th of February."},
 	{"id":"mary", "text":"Mary River, Gympie", "years":"seven days"}
 	]
 
