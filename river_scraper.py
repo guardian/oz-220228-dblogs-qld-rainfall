@@ -24,6 +24,16 @@ def grabber(name, linko):
         tableau['Moderate flood'] = 7.2
         tableau['Major flood'] = 9.7
 
+    if name == 'hawkesbury':
+        tableau['Minor flood'] = 3.8
+        tableau['Moderate flood'] = 7.9
+        tableau['Major flood'] = 10.5
+
+    if name == 'nepean':
+        tableau['Minor flood'] = 5.2
+        tableau['Moderate flood'] = 9.2
+        tableau['Major flood'] = 12.2
+
     tableau.rename(columns={'Station Date/Time': 'date', 'Water Level(m)': 'Water Level (m)'}, inplace=True)
     # tableau['date'] = pd.to_datetime(tableau['date'])
     # tableau['date'] = tableau['date'].dt.strftime("%Y-%m-%d")
@@ -46,8 +56,12 @@ def grabber(name, linko):
         tableau.to_csv(f, index=False, header=True)
 
 
-grabber("wilsons", 'http://www.bom.gov.au/fwo/IDN60231/IDN60231.058176.tbl.shtml')
+# grabber("wilsons", 'http://www.bom.gov.au/fwo/IDN60231/IDN60231.058176.tbl.shtml')
 
 grabber("mary", 'http://www.bom.gov.au/fwo/IDQ65390/IDQ65390.040993.tbl.shtml')
 
 grabber("brisbane", 'http://www.bom.gov.au/fwo/IDQ65389/IDQ65389.540684.tbl.shtml')
+
+grabber("hawkesbury", 'http://www.bom.gov.au/fwo/IDN60233/IDN60233.567098.tbl.shtml')
+
+grabber("nepean", 'http://www.bom.gov.au/fwo/IDN60233/IDN60233.068216.tbl.shtml')

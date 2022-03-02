@@ -6,7 +6,7 @@ var selected = 'botanic-gardens'
 var currentResults
 
 Promise.all([
-	d3.csv(`<%= path %>/brisbane.csv`)
+	d3.csv(`<%= path %>/nepean.csv`)
 	])
 	.then((results) =>  {
 		cumulative(results[0], selected)
@@ -31,10 +31,12 @@ window.addEventListener('resize', function() {
 
 // var rainfall = [
 // {"id":"botanic-gardens", "text":"Botanic Gardens, Sydney", "notes":"Rainfall data from Botanic Gardens and Observatory Hill (Feb 24, 25),", "years":"1910 to 2021"},
-// {"id":"parramatta", "text":"Parramatta", "notes":"Rainfall data from Parramatta North (Masons Drive),", "years":"1965 to 2021"}
+// {"id":"parramatta", "text":"Parramatta", "notes":"Rainfall   data from Parramatta North (Masons Drive),", "years":"1965 to 2021"}
 // ]
 
 var rainfall = [
+	{"id":"nepean", "text":"Nepean, Menangle Bridge", "years":"seven days"},
+	{"id":"hawkesbury", "text":"Hawkesbury, North Richmond", "years":"seven days"},
 	{"id":"brisbane", "text":"Brisbane River", "years":"seven days"},
 	{"id":"wilsons", "text":"Wilsons River, Lismore", "years":"four days"},
 	{"id":"mary", "text":"Mary River, Gympie", "years":"seven days"}
