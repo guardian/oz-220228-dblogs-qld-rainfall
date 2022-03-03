@@ -581,4 +581,3 @@ export function cumulative(results, chartId) {
 
 }	// end init
 
-

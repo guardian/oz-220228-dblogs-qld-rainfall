@@ -63,5 +63,5 @@ grabber("hawkesbury", 'http://www.bom.gov.au/fwo/IDN60233/IDN60233.567098.tbl.sh
 
 grabber("nepean", 'http://www.bom.gov.au/fwo/IDN60233/IDN60233.068216.tbl.shtml', 5.2, 9.2, 12.2)
 
-willy = pd.read_csv('input/wilsons.csv')
-syncData(willy.to_json(orient='records'),'2022/02/river-heights', f"wilsons")
+# willy = pd.read_csv('input/wilsons.csv')
+# syncData(willy.to_json(orient='records'),'2022/02/river-heights', f"wilsons")
