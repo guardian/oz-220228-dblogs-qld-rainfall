@@ -14,8 +14,6 @@ export function cumulative(results, chartId) {
 
 	var minner = d3.min(results, d=> d['Water Level(m)'])
 
-	var dates 
-
 	// console.log("Min", minner)
 
 	function numberFormat(num) {
@@ -86,24 +84,9 @@ export function cumulative(results, chartId) {
 	var keys = Object.keys(data[0])
 	var xVar = keys[0]
 
+	// console.log("exxie", xVar)
 
-	
-	var formatted_date_parse = d3.timeParse("%d/%m/%Y %H:%M")
 
-	var latest_date = d3.max(results, d=> formatted_date_parse(d[xVar]))
-
-	// var date_out_format = d3.timeFormat("%-I%p %-d %B %Y")
-
-	var date_out_format = d3.timeFormat("%-I%p %d/%m/%Y")
-
-	// var formatted_date = formatted_date_parse(latest_date)
-	var formatted_date = date_out_format(latest_date)
-
-	d3.select(".rainfall #yearsNote").text(` Latest data as of ${formatted_date}.`)
-
-	// console.log(typeof latest_date)
-	// console.log(latest_date)
-	// console.log(formatted_date)
 	
 	keys.splice(0, 1);
 	
@@ -294,6 +277,36 @@ export function cumulative(results, chartId) {
 	// }
 
 	
+
+	var formatted_date_parse = d3.timeParse("%d/%m/%Y %H:%M")
+
+	// var dates = results.map(d => formatted_date_parse(d['date']))
+	var dates = results.map(d => d['date'])
+
+	var latest_date = d3.max(dates)
+
+	console.log("dates", dates)
+
+	console.log(latest_date)
+
+	// var latest_date = d3.max(results, d=> formatted_date_parse(d[xVar]))
+
+	// var date_out_format = d3.timeFormat("%-I%p %-d %B %Y")
+
+	var date_out_format = d3.timeFormat("%-I%p %d/%m/%Y")
+
+	// // var formatted_date = formatted_date_parse(latest_date)
+	var formatted_date = date_out_format(latest_date)
+
+	d3.select(".rainfall #yearsNote").text(` Latest data as of ${formatted_date}.`)
+
+	// // console.log(typeof latest_date)
+	// console.log("latest", latest_date)
+	console.log(formatted_date)
+
+
+
+
 
 	x.domain(d3.extent(data, function(d) { return d[xVar]; }));
 	// y.domain([0, d3.max(allValues)])

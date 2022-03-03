@@ -2,17 +2,23 @@ import * as d3 from "d3"
 import { cumulative } from "shared/js/cumulative_cumulative";
 
 
-var selected = 'botanic-gardens'
+var selected = 'nepean'
 var currentResults
+
+// d3.select(".rainfall #yearsNote").text('')
 
 Promise.all([
 	// d3.csv(`<%= path %>/nepean.csv`)
-	d3.json(`https://interactive.guim.co.uk/2022/02/river-heights/nepean`)
+	d3.json(`https://interactive.guim.co.uk/2022/02/river-heights/${selected}`)
 	])
 	.then((results) =>  {
 		cumulative(results[0], selected)
 		currentResults = results[0]
+
 		d3.select(".rainfall #loadingContainer").style("display","none")
+
+		
+
 	});
 
 var to=null
@@ -59,7 +65,7 @@ selector.on("change", function() {
 		var currentRiver = rainfall.find(d => d.id == selected)
 		
 		// d3.select(".rainfall #yearsNote").text(currentRiver.years)
-		d3.select(".rainfall #footnote").text(currentRiver.notes)
+		// d3.select(".rainfall #yearsNote").text('')
 
 		console.log(selected)
 
@@ -68,9 +74,10 @@ selector.on("change", function() {
 		d3.json(`https://interactive.guim.co.uk/2022/02/river-heights/${selected}`)
 		])
 		.then((results) =>  {
-			d3.select(".rainfall #loadingContainer").style("display","none")
+
 			cumulative(results[0], selected)
 			currentResults = results[0]
+			d3.select(".rainfall #loadingContainer").style("display","none")
 		});
 
 });
